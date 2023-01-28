@@ -1,0 +1,21 @@
+.list_container{
+ width: 500px;
+ z-index: 1000;
+ position: absolute;
+ top: 60px;
+ background-color: var(--clr-primary-3);
+ color: var(--clr-primary-1);
+ border-radius: 7px;
+}
+.list{
+    margin: 2rem;
+    padding: 1rem;
+}
+.list_container h4{
+    padding: 1rem;
+    color: var(--clr-primary-1);
+    border-radius: 7px;
+}
+.list_container h4:hover{
+    background-color: rgb(200, 208, 216);
+}

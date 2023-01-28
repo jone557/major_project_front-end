@@ -1,0 +1,183 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chango&family=Montserrat:ital,wght@0,400;0,500;0,600;0,800;1,500&display=swap');
+
+
+
+
+#signup_body{
+	/* background: #576574; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: Montserrat;
+	height: 100vh;
+    width: 94vw;
+}
+#signup_body a{
+  color: var(--clr-primary-1)
+}
+#signup_h1{
+	font-weight: bold;
+	margin-top: 0;
+  
+}
+.signup_title {
+    font-family: Mouse Memoirs;
+	font-size: 20px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 20px 0 30px;
+}
+#signup_button{
+  font-family: cursive;
+	border-radius: 20px;
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+	color: black;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0.5rem;
+	letter-spacing: 1px;
+	align-items: left;
+	margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+#signup_button:active {
+	transform: scale(0.95);
+}
+
+#signup_button:focus {
+	outline: none;
+}
+.signup_form{
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 2rem;
+  height: 100%;
+  text-align: center;
+}
+
+.signup_input{
+    display: block;
+	background-color: #eee;
+    border-radius: 10px;
+	border: black;
+	padding: 9px 10px;
+	margin: 8px 0;
+    width: 100%;
+}
+
+.signup_container{
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  position: relative;
+  width: 60%;
+  color: var(--clr-black);
+  overflow: hidden;
+ 
+}
+
+.form-container {
+
+  width: 50%;
+}
+
+.sign_up_right{
+    background: #ffe6b3;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    width: 50%;
+}
+
+
+.signup_inside{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-style: solid;
+  border-color:#050505; 
+  border-width: thin;
+  padding: 1rem;
+  width: 100%;
+  margin-bottom: 40px;
+  
+  
+}
+.signup_label{
+  display: inline-block;
+  font-family: Mouse Memoirs;
+  font-size: 20px;
+}
+
+.signup_login{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-top: 10px;
+  padding-bottom: 15px;
+  padding-top: 10px;
+  
+}
+.signup_member{
+  font-family: Mouse Memoirs;
+  font-size: medium;
+}
+
+
+#signup_a{
+    font-family: Mouse Memoirs;
+    display: inline;
+    font-size: medium;
+  
+  }
+
+#signup_checkbox{
+  display: inline-block;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+.signup_check{
+  display: flex;
+}
+#signup_boxagree{
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+#checkbox {
+  height: 1em;
+  width: 1em;
+  vertical-align: middle;
+}
+
+.termandcondition{
+  font-family: Mouse Memoirs;
+  display: inline;
+  margin-top: 15px;
+  font-size: medium;
+
+}
+.error{
+  color: #FF4B2B;
+  font-size: 13px;
+  margin-top: -1px;
+}
+#passforget{
+  padding-top: 10px;
+  font-size: 13px;
+}

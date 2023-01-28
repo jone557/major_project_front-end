@@ -1,0 +1,25 @@
+.search_bar_container{
+    position: relative;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search_bar_container input{
+    padding-left: 2.5rem ;
+    padding-right: 5rem;
+}
+.search_bar_container span{
+    position: absolute;
+}
+.search_bar_container .icon{
+    left: 5%;
+}
+.search_bar_container .shortcut{
+    right: 3%;
+    background-color: var(--clr-primary-3);
+    color: var(--clr-primary-1);
+    border-radius: 4px;
+    padding: 0.1rem;
+    cursor: pointer;
+}

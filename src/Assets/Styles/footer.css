@@ -1,0 +1,15 @@
+.social_links ul{
+    display: flex;
+}
+.footer_contaier{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 4rem ;
+    padding-bottom: 4rem;
+    background-color: var(--clr-primary-1);
+}
+.social_links ul li{
+    margin: 0.5rem;
+    font-size: x-large;
+}

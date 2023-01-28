@@ -1,0 +1,15 @@
+
+.form{
+    /* background-color: white; */
+    padding: 2rem 0 ;
+    border: var(--clr-border-dark) 1px solid;
+    border-radius: 10px;
+    background-color: var(--clr-primary-2);
+    box-shadow: var( --dark-shadow);
+}
+.form h4{
+    margin: 0 1rem;
+}
+.form input{
+    width: 40%;
+}

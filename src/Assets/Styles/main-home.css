@@ -1,0 +1,19 @@
+
+
+.info_card_container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: var(--gap);
+    place-content: center;
+    background-color: var(--clr-primary-1);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+@media (max-width: 48em) {
+    .info_card_container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+}

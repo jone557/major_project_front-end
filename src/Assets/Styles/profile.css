@@ -1,0 +1,105 @@
+
+.user_profile_container .upper{
+	display: flex;
+	
+	height: 250px;
+	background-color: #001e3c;
+}
+.user_img{
+	position: relative;
+	width: 150px;
+	height: 150px;
+	margin-top: 20px;
+	left: 40px;
+	
+}
+.userimage{
+	margin-left: 50px;
+	
+}
+.user_profile_container .profile_h1{
+	color:#fff;
+    position: relative;
+    top: 40px;
+    left: 100px;
+
+	 padding: 0;
+	
+}
+.user_profile_container .profile_p{
+	
+	color: #fff;
+	position: relative;
+	top: 80px;
+    left: -150px;
+    padding: 0;
+	
+	
+}
+
+
+.user_profile_container .collection{
+	position: relative;
+	top: 200px;
+	left: -200px;
+
+}
+.liked{
+	position: relative;
+	top: 200px;
+	left: -180px;
+}
+.profile_button{
+	background-color: #FF4B2B;
+	color: black;
+	font-size: 12px;
+	font-weight: bold;
+	cursor: pointer;
+	letter-spacing: 1.5px;
+	align-items: left;
+	width: 110px;
+	height: 30px;
+	position: relative;
+	top: 50px;
+	left: 450px;
+}
+button{
+	
+	border-color: #fff;
+	
+}
+button:active {
+	transform: scale(0.95);
+}
+
+Link:focus {
+	outline: none;
+}
+hr{
+	padding: 0;
+	margin: 0;
+	
+}
+
+.buttong{
+	
+	height: 30px;
+
+}
+
+/* .lower{
+	height: 400px;
+	background :#1D3153;
+} */
+
+.social_profile{
+	position: relative;
+	top: 200px;
+	left: 370px;
+	height: 30px;
+
+}
+.profile_p{
+	position: relative;
+	/* top: 60px; */
+}

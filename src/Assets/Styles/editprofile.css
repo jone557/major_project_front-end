@@ -1,0 +1,103 @@
+
+.edit_img{
+	width: 120px;
+	height: 120px;
+	margin-left: 230px;
+    
+}
+.right{
+    margin-left: 250px;
+}
+.edit_h2{
+    margin-left: 30px;
+    padding: 20px;
+}
+.input_field_img{
+    margin: 10px 0 0 0;
+    width: 100%;
+    min-height: 2em;
+  }
+  .imgpic{
+    color: transparent;
+  }
+  .imgpic::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .imgpic::before {
+    content: 'Upload Image';
+    color: #080808;
+    display: inline-block;
+    border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+    border-radius: 3px;
+    padding: 5px 5px;
+    outline: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 10pt;
+    position: relative;
+    left: 245px;
+  }
+  .imgpic:hover::before {
+    border-color: black;
+  }
+  .imgpic:active {
+    outline: 0;
+  }
+  .imgpic:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+  }
+.save{
+    display: block;
+    margin-left: 0px;
+    margin-top: 30px;
+    height: 2em;
+    font-size: 1.1rem;
+    background-color: #FF4B2B;
+    color:#000000;
+    min-width: 100%;
+  }
+  
+
+.form-style-1 {
+	margin-left: 50px;
+	max-width: 550px;
+	font: 14px "Lucida Grande", sans-serif;
+}
+.form-style-1 label{
+	margin:0 0 8px 0;
+	padding-top:30px;
+	display:block;
+	
+}
+
+.form-style-1 input[type=text], 
+.form-style-1 input[type=email]
+{
+	background-color: #112444;
+  color: #ffffff;
+	border:1px solid #9b9797;
+	padding: 8px;
+	margin:0px;
+}
+
+
+.form-style-1 .field-divided{
+	width: 49.6%;
+   
+}
+
+.form-style-1 .field-long{
+	width: 100%;
+}
+.ex{
+  
+  position: relative;
+  left: 277px;
+  color: #FF4B2B;
+  font-size: 13px;
+  margin-top: -15px;
+}
+
+
+

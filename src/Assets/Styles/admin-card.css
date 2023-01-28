@@ -1,0 +1,27 @@
+.stat_card_container{
+    width: 100%;
+    align-items: center;
+}
+.stat_card{
+    /* width: fit-content; */
+    padding: 1rem;
+    margin: 1rem;
+    justify-content: space-between;
+    /* border-bottom: #e6cd42 solid 4px; */
+    width: 100%;
+}
+.stat_card h3{
+    font-weight: 900;
+    font-size: larger;
+    margin: 1rem 0;
+}
+.stat_card p{
+    margin: 1rem 0;
+}
+.stat_card_container a svg{
+        color: var(--clr-primary-1);
+}
+.stat_card_container a svg:hover{
+    color: #70e642;
+    font-size: large;
+}

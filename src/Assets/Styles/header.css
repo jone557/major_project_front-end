@@ -1,0 +1,45 @@
+
+.header_container{
+    display: flex;
+    height: 90vh;
+    background-color: var(--clr-primary-2);
+    padding-right: 0;
+}
+.header_left, 
+.header_right{
+    width: 50%;
+}
+
+.header_right{
+    /* border: 2px solid; */
+    padding: 0 0 2rem 2rem;
+}
+.header_right img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 0 50% 60%;
+    /* transform: rotate(-15deg); */
+}
+.header_left h1{
+    font-weight: 800;
+    font-size: 3.75rem;
+    margin: var(--large-gap) 0;
+}
+.header_left p{
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 24px;
+}
+.header_left a{
+    width: fit-content;
+    font-weight: 500;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    margin: var(--large-gap) 0;
+}
+.header_left a span{
+    padding-left: 0.5rem;
+    color: var(--clr-primary-1);
+    font-size: 1.57rem;
+}

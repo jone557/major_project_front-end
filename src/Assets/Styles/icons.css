@@ -1,0 +1,11 @@
+.icon{
+    color: var(--clr-primary-3);
+}
+.nav-toggle {
+    display: none;
+    font-size: 1.5rem;
+}
+#vsCodeIcon{
+    display: grid;
+    place-content: center;
+}

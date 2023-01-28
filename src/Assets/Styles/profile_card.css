@@ -1,0 +1,42 @@
+
+
+.wrapper{
+    background-color: var(--clr-primary-3);
+    margin: 1rem;
+    color: var(--clr-primary-1);
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 1rem;
+}
+.wrapper header{
+    display: flex;
+ 
+    
+}
+.main-icon{
+    background-color: rgb(126, 89, 212);
+    padding: 0.7rem 1.3rem;
+    border-radius: 4px;
+    margin: 0.5rem;
+    font-weight: bold;
+    font-size: x-large;
+    color: white;
+}
+
+.wrapper .social-link a{
+    color: var(--clr-primary-1);
+}
+.social-link a svg{
+    font-size: larger;
+}
+.deactivate-btn{
+    background-color: rgb(247, 176, 164);
+    color: rgb(138, 14, 14);
+    padding: 0.3rem;
+    margin: 0;
+    width: 7rem;
+    height: 2rem
+}
+.deactivate-btn:hover{
+    border:  rgb(247, 176, 164) solid 2px;
+}

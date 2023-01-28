@@ -1,0 +1,41 @@
+.user_profile_container {
+    margin: 2em;
+    box-shadow: 2px 2px 20px rgba(129, 125, 125, 0.527);
+    padding: 2em;
+    border-radius: 10px;
+    
+  }
+  .user_image_and_name {  
+    display: flex;
+  }
+  .user_basic_info {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    margin: 40px;
+  }
+  
+  .user_basic_info p {
+    padding: 1em;
+  }
+  .user_profile_container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 20px rgb(0 0 0 / 20%);
+    border: solid 4px rgb(244, 255, 215);
+  }
+  .user_profile_main {
+    /* background-color: rgb(236, 234, 234); */
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  .user_profile_main h3{
+    margin: 1rem;
+  }
+  .user_profile_main table{
+    box-shadow: var(--clrBox-shadow);
+  
+  }
+  

@@ -1,0 +1,139 @@
+.hdr-mrg{
+    margin: 2rem 0 0rem 2.5rem;
+}
+.hvr-pointer:hover{
+    cursor: pointer;
+}
+.hvr-backgroung:hover{
+    background: rgba(217, 217, 217, 0.3);
+}
+.highligh-backgroung{
+    color: yellow;
+}
+.hdr-title-marg{
+    margin: 0 ;
+}
+.dis-none{
+    display: none;
+}
+.sub-elem-hdr-marg{
+    margin: 0.6rem 0 0.5rem 1.75rem;
+}
+.sid-hdr-mrg{
+    margin: 1.5rem 0 1.5rem 1rem;
+}
+.sub-section-marg{
+    margin: 2rem 0 0.5rem 5rem;
+}
+.sub-title-marg{
+    margin: 0.5rem 0 0 0;
+}
+.like_button:hover{
+ color: red;
+ cursor: pointer;
+}
+.submit{
+    cursor: pointer;
+    height: 2rem;
+}
+.submit:hover{
+    background: #4dff4d;
+}
+.code_flex_container{
+    display: flex;
+    justify-content: space-between;
+}
+.component_container{
+    /* position:fixed; */
+    display: flex;
+    flex-direction: column;
+
+    /* top: 60px; */
+    /* bottom: 0; */
+    /* left: 0; */
+    /* background-color: #1D3153; */
+    /* width: 100%; */
+    color: white;
+    /* overflow-y: scroll; */
+    
+}
+.editors-container{
+display: flex;
+flex-direction: row;
+}
+.compnent-elements{
+   margin-left: 15rem;
+   min-height: 100vh;
+}
+.side-bar-container{
+    position: fixed;
+    width: 15rem;
+    height: 100vh;
+    background-color: #0a1929;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.side-bar-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+.side-bar-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+.comp-sub-title{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-left: 1rem;
+}
+.comp-sub-section{
+    width: 45.5rem;
+    height: auto;
+}
+.comp-sub-header{
+font-style: normal;
+font-weight: 500;
+font-size: 2rem;
+line-height: 2.5rem;
+}
+.comp-sub-elem-hdr{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.75rem;
+    line-height: 2.2rem;
+}
+.comp-steps-container{
+    min-height: 8.3rem;
+    height: auto;
+    background: rgba(217, 217, 217, 0.05);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+.comp-snipt-container{
+    background: #112444;
+    border-radius: 1rem;
+    height: auto;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    margin-top: 2.2rem;
+}
+.sid-elem-cont{
+    margin: 0 0.6rem 0 0.6rem;
+    height: auto;
+    
+}
+.sid-element{
+    background: rgba(217, 217, 217, 0.05);
+    font-weight:100;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    align-items: center;
+    text-align: center;
+    margin-top: 0.8rem;
+    height: 2rem;
+}
+.show_error{
+    background-color: red;
+}
