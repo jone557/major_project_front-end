@@ -20,8 +20,14 @@ function SingleComponent() {
     const user = useSelector((state) => state.auth.user)
     const componentstore = useSelector((state) => state.component)
     const component = componentstore.si_component
-    const [thisCode, setThisCode] = useState();
+    const [jsCode, setJsCode] = useState();
+    const [html, sethtml] = useState();
     const [css, setCss] = useState();
+    codeOutput = `<html>
+    <style>${css}</style>
+    <body></body>
+    <script></script>
+    <html/>`
     const handleLike = () => {
         if (user) {
             // dispatch(Like([id, user.id]));
@@ -31,13 +37,12 @@ function SingleComponent() {
     var codeOutput = ''
     console.log(component)
     if (component.code_referance) {
-        codeOutput = `http://127.0.0.1:3001/component/${component.code_referance}`
-        axios.get(`http://127.0.0.1:8000/api/component/code/${component.code_referance}`).then((response) => setThisCode(response.data.message)).catch((err) => { console.log(err) })
+        axios.get(`http://127.0.0.1:8000/api/component/code/${component.code_referance}`).then((response) => setJsCode(response.data.message)).catch((err) => { console.log(err) })
         axios.get(`http://127.0.0.1:8000/api/component/css/${component.code_referance}`).then((response) => setCss(response.data.message)).catch((err) => { console.log(err) })
     }
     if (componentstore.loading) {
         return (
-            <Spinner/>
+            <Spinner />
         )
     }
     return (
@@ -70,20 +75,28 @@ function SingleComponent() {
                         }} />
                         : ''}
 
-                    
+
                 </div>
                 <div className='comp-sub-title sub-elem-hdr-marg editors-container'>
+
                     <Editor
-                        language="javascript"
-                        value={thisCode}
-                        displayName='Jsx'
-                        onChange={thisCode}
+                        language="xml"
+                        value={html}
+                        displayName='Html'
+                        onChange={html}
                     />
+
                     <Editor
                         language="css"
                         value={css}
                         displayName='Css'
                         onChange={css}
+                    />
+                    <Editor
+                        language="javascript"
+                        value={jsCode}
+                        displayName='Jsx'
+                        onChange={jsCode}
                     />
 
                 </div>
