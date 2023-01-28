@@ -15,10 +15,10 @@ function AutoOpen() {
     }
     return (
         <div className='list_container flex col ' >
-            {results?.map(result => (
+            {/* {results?.map(result => (
                 <Link to={'/components/category/'+ (result.id)} key={result.id}><h4 >{result.title}</h4></Link>
             ))
-            }
+            } */}
         </div>
     )
 }
