@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AddComponent } from '../Redux/reducers/componentReducer';
 import {  GetCategory } from '../Redux/reducers/categoryReducer';
 import { useNavigate } from "react-router-dom";
-
+import Editor from '../Componets/Editor'
+import useLocalStorage from '../Componets/useLocalStorage'
 
 const Landing = () => {
     const categorystore = useSelector((state) => state.category)
@@ -23,9 +24,10 @@ const Landing = () => {
         name: '',
         discription: '',
         code: '',
-        css: ''
+        css: '',
+        html: ''
     })
-    const { category_id, name, discription, code, css } = component;
+    const { category_id, name, discription, code, css, html } = component;
     const onChange = (e) => {
         setComponent({ ...component, [e.target.name]: e.target.value ,['user_id']:user.id})
     }
@@ -43,10 +45,30 @@ const Landing = () => {
             name: '',
             discription: '',
             code: '',
-            css:''
+            css:'',
+            html:''
         })
 
     }
+    //new change
+    const [jsSample, setJsSample] = useLocalStorage('html', '');
+    const [htmlSample, setHtmlSample] = useLocalStorage('js', '');
+    const [cssSample, setCssSample] = useLocalStorage('css', '');
+    const [codeOutput, setCodeOutput] = useState('');
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setCodeOutput(`
+            <html>
+              <body>${htmlSample}</body>
+              <style>${cssSample}</style>
+              <script>${jsSample}</script>
+            </html>
+          `)
+        }, 250)
+    
+        return () => clearTimeout(timeout)
+      }, [htmlSample, cssSample, jsSample])
+    
     return (
         <div className="admin_main_container">
 
@@ -55,7 +77,40 @@ const Landing = () => {
                 <div className='compnent-element hdr-mrg '>
                     <h1 className='hdr-title-marg'>Add component</h1>
                     {/* codepen compiler for react here */}
-                    <iframe src="https://codepen.io/engida2312/embed/yLjrpYL?default-tab=js%2Cresult&editable=true" title=" " width="100%" height="500" frameBorder="0" marginwidth="0" marginheight="0" loading="lazy" allowtransparency="true" allowFullScreen></iframe>
+                    <div>
+                    <iframe 
+                    srcDoc={codeOutput} 
+                    title=" " 
+                    width="80%" 
+                    height="200" 
+                    loading="lazy" 
+                    sandbox="allow-scripts"
+                    // frameBorder="0"
+                    />
+                    </div>
+                    <h2>type your input code in the below IDE</h2>
+                   <div className="editors-container">
+                   <Editor
+                        language="xml"
+                        value={htmlSample}
+                        displayName='Html'
+                        onChange={setHtmlSample}
+                        
+                    />
+
+                    <Editor
+                        language="css"
+                        value={cssSample}
+                        displayName='Css'
+                        onChange={setCssSample}
+                    />
+                    <Editor
+                        language="javascript"
+                        value={jsSample}
+                        displayName='Jsx'
+                        onChange={setJsSample}
+                    />
+                   </div>
                     <form onSubmit={onSubmit}>
                         <div className='flex' style={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
                             <label className='sub-title-marg' htmlFor='Cname'>Name</label>
@@ -70,8 +125,11 @@ const Landing = () => {
                                     <option  key={category.id} value={category.id}>{category.title}</option>
                                 ))}
                             </select>
-                            <label className='sub-title-marg' htmlFor='code_ref'>Jsx Code Input</label>
-                            <textarea id='code_ref' className='sub-title-marg' style={{ width: '43rem' }} name='code' value={code} onChange={onChange} placeholder='submite the Jsx code here after checking in the code editor' rows="10" cols="50" required>
+                            <label className='sub-title-marg' htmlFor='html-co'>Html Code Input</label>
+                            <textarea id='html_co' className='sub-title-marg' style={{ width: '43rem' }} name='html' value={html} onChange={onChange} placeholder='submite the html code here after checking in the code editor' rows="10" cols="50" required>
+                            </textarea>
+                            <label className='sub-title-marg' htmlFor='code_ref'>Js Code Input</label>
+                            <textarea id='code_ref' className='sub-title-marg' style={{ width: '43rem' }} name='code' value={code} onChange={onChange} placeholder='submite the Jsx code here after checking in the code editor' rows="10" cols="50" >
                             </textarea>
                             <label className='sub-title-marg' htmlFor='code_ref'>Css Code Input</label>
                             <textarea id='css' className='sub-title-marg' style={{ width: '43rem' }} name='css' value={css} onChange={onChange} placeholder='submite the css code here after checking in the code editor' rows="10" cols="50" required>

@@ -21,22 +21,29 @@ function SingleComponent() {
     const componentstore = useSelector((state) => state.component)
     const component = componentstore.si_component
     const [jsCode, setJsCode] = useState();
-    const [html, sethtml] = useState();
+    const [html, setHtml] = useState();
     const [css, setCss] = useState();
-    codeOutput = `<html>
-    <style>${css}</style>
-    <body></body>
-    <script></script>
-    <html/>`
+    const [codeOutput, setCodeOutput] = useState('');
+    useEffect(() => {
+            setCodeOutput(`
+            <html>
+              <body>${html}</body>
+              <style>${css}</style>
+              <script>${jsCode}</script>
+            </html>
+          `)
+
+      }, [html, css, jsCode]) 
     const handleLike = () => {
         if (user) {
             // dispatch(Like([id, user.id]));
             document.querySelector('#cop' + id).style.color = 'red';
         }
     }
-    var codeOutput = ''
+    
     console.log(component)
     if (component.code_referance) {
+        axios.get(`http://127.0.0.1:8000/api/component/html/${component.code_referance}`).then((response) => setHtml(response.data.message)).catch((err) => { console.log(err) })
         axios.get(`http://127.0.0.1:8000/api/component/code/${component.code_referance}`).then((response) => setJsCode(response.data.message)).catch((err) => { console.log(err) })
         axios.get(`http://127.0.0.1:8000/api/component/css/${component.code_referance}`).then((response) => setCss(response.data.message)).catch((err) => { console.log(err) })
     }
@@ -55,12 +62,14 @@ function SingleComponent() {
                 <h1 className='comp-sub-elem-hdr sub-elem-hdr-marg'>output</h1>
 
                 <div className='comp-sub-title sub-elem-hdr-marg '>
-                    <iframe
-                        src={codeOutput}
-                        width='600px'
-                        height='80px'
-                        title='codeOutput'
-                        backgroundColor='white'
+                <iframe 
+                    srcDoc={codeOutput} 
+                    title=" " 
+                    width="100%" 
+                    height="auto" 
+                    loading="lazy" 
+                    sandbox="allow-scripts"
+                     frameBorder="0"
                     />
 
                 </div>
