@@ -10,43 +10,38 @@ import axios from 'axios';
 import Spinner from '../Componets/spinner';
 
 
-function SingleComponent() {
+function SingleComponent() {    
     const dispatch = useDispatch();
     let { id } = useParams();
     useEffect(() => {
         dispatch(Unique(id))
         dispatch(Viewes(id))
     }, [id]);
+
     const user = useSelector((state) => state.auth.user)
     const componentstore = useSelector((state) => state.component)
     const component = componentstore.si_component
-    const [jsCode, setJsCode] = useState();
-    const [html, setHtml] = useState();
-    const [css, setCss] = useState();
+    const code = componentstore.code
+
     const [codeOutput, setCodeOutput] = useState('');
     useEffect(() => {
             setCodeOutput(`
             <html>
-              <body>${html}</body>
-              <style>${css}</style>
-              <script>${jsCode}</script>
+              <style>${code.CSS}</style>
+              <script>${code.JS}</script>
+              <body>${code.HTML}</body>
+
             </html>
           `)
 
-      }, [html, css, jsCode]) 
+      }, []) 
     const handleLike = () => {
         if (user) {
             // dispatch(Like([id, user.id]));
             document.querySelector('#cop' + id).style.color = 'red';
         }
     }
-    
-    console.log(component)
-    if (component.code_referance) {
-        axios.get(`http://127.0.0.1:8000/api/component/html/${component.code_referance}`).then((response) => setHtml(response.data.message)).catch((err) => { console.log(err) })
-        axios.get(`http://127.0.0.1:8000/api/component/code/${component.code_referance}`).then((response) => setJsCode(response.data.message)).catch((err) => { console.log(err) })
-        axios.get(`http://127.0.0.1:8000/api/component/css/${component.code_referance}`).then((response) => setCss(response.data.message)).catch((err) => { console.log(err) })
-    }
+ 
     if (componentstore.loading) {
         return (
             <Spinner />
@@ -61,7 +56,8 @@ function SingleComponent() {
             <div className='comp-steps-container hdr-mrg'>
                 <h1 className='comp-sub-elem-hdr sub-elem-hdr-marg'>output</h1>
 
-                <div className='comp-sub-title sub-elem-hdr-marg '>
+                <div className='comp-sub-title sub-elem-hdr-marg ' >
+
                 <iframe 
                     srcDoc={codeOutput} 
                     title=" " 
@@ -86,29 +82,28 @@ function SingleComponent() {
 
 
                 </div>
+
                 <div className='comp-sub-title sub-elem-hdr-marg editors-container'>
 
                     <Editor
                         language="xml"
-                        value={html}
+                        value={code.HTML}
                         displayName='Html'
-                        onChange={html}
                     />
 
                     <Editor
                         language="css"
-                        value={css}
+                        value={code.CSS}
                         displayName='Css'
-                        onChange={css}
                     />
                     <Editor
                         language="javascript"
-                        value={jsCode}
+                        value={code.JS}
                         displayName='Jsx'
-                        onChange={jsCode}
                     />
 
                 </div>
+
 
             </div>
         </div>

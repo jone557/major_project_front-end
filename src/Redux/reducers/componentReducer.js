@@ -6,6 +6,7 @@ const initialState = {
     loading: false,
     components: [],
     si_component: '',
+    code: [],
     siUser_component: [],
     siCategory_component: [],
     error: ''
@@ -84,6 +85,7 @@ const componentSlice = createSlice({
         })
         builder.addCase(SingleComponent.fulfilled, (state, action) => {
             state.si_component = action.payload.message[0]
+            state.code = action.payload.code
             state.loading = false
         })
         builder.addCase(SingleComponent.rejected, (state, action) => {

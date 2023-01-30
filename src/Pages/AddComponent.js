@@ -118,9 +118,9 @@ const Landing = () => {
                             <label className='sub-title-marg' htmlFor='Cdescription'>Description</label>
                             <textarea className='sub-title-marg' type='text' id='Cdescription' value={discription} placeholder='Description' name='discription' onChange={onChange} ></textarea>
                             <label className='sub-title-marg' htmlFor='category'>Category</label>
-                            <select name="category_id" className="input" id="categorys" value="none" onChange={onChange} required>
+                            <select name="category_id" className="input" id="categorys" value={category_id} onChange={onChange} required>
                                 {}
-                                <option value="none" selected="selected" disabled hidden>Select an Option</option>
+                                <option value="" selected="selected" >Select an Option</option>
                                 {categorys.map(category => (
                                     <option  key={category.id} value={category.id}>{category.title}</option>
                                 ))}
