@@ -42,6 +42,8 @@
 .code_flex_container{
     display: flex;
     justify-content: space-between;
+    background: rgba(82, 77, 77, 0.05);
+    
 }
 .component_container{
     /* position:fixed; */
@@ -108,9 +110,10 @@ line-height: 2.5rem;
 .comp-steps-container{
     min-height: 8.3rem;
     height: auto;
-    background: rgba(217, 217, 217, 0.05);
+    /* background: rgba(217, 217, 217, 0.05); */
     border-radius: 1rem;
     padding: 1rem;
+    width: 100%;
 }
 .comp-snipt-container{
     background: #112444;
@@ -136,4 +139,8 @@ line-height: 2.5rem;
 }
 .show_error{
     background-color: red;
+}
+
+.editors-container{
+    width: 100%;
 }

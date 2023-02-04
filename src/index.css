@@ -132,5 +132,32 @@ body {
  }
 
   a{
-  color: var(--clr-primary-3);
+    color: var(--clr-primary-3);
+  }
+
+/* add compnent */
+iframe{
+  border-radius: 10px;
+  border: none;
+  background-color: var(--clr-primary-2);
+  box-shadow: 0 5px 15px rgba(247, 246, 246, 0.2);
+  margin: 1rem;
+  height: 40vh;
+}
+.editors-container{
+  margin: 1rem;
+}
+.editors-container .cm-s-material.CodeMirror {
+  background-color: #050b0e;
+  color: #EEFFFF;
+  padding: 1rem;
+  font-size: larger;
+}
+.CodeMirror-gutter{
+  background-color: #050b0e;
+  font-size: larger;
+
+}
+div.CodeMirror{
+    height: 90vh !important;
 }

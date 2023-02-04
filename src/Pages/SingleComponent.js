@@ -30,11 +30,9 @@ function SingleComponent() {
               <style>${code.CSS}</style>
               <script>${code.JS}</script>
               <body>${code.HTML}</body>
-
             </html>
           `)
-
-      }, []) 
+      }, [code.HTML, code.CSS, code.JS]) 
     const handleLike = () => {
         if (user) {
             // dispatch(Like([id, user.id]));
@@ -58,14 +56,14 @@ function SingleComponent() {
 
                 <div className='comp-sub-title sub-elem-hdr-marg ' >
 
-                <iframe 
-                    srcDoc={codeOutput} 
-                    title=" " 
-                    width="100%" 
-                    height="auto" 
-                    loading="lazy" 
-                    sandbox="allow-scripts"
-                     frameBorder="0"
+                    <iframe 
+                        srcDoc={codeOutput} 
+                        title=" " 
+                        width="100%" 
+                        height="auto" 
+                        loading="lazy" 
+                        sandbox="allow-scripts"
+                        frameBorder="0"
                     />
 
                 </div>

@@ -75,20 +75,20 @@ const Landing = () => {
             <div className='component_container'>
                 {error ? <div className='show_error'><h2>{error}</h2></div> : ''}
                 <div className='compnent-element hdr-mrg '>
-                    <h1 className='hdr-title-marg'>Add component</h1>
+                    <h1 className='hdr-title-marg'>Output</h1>
                     {/* codepen compiler for react here */}
                     <div>
-                    <iframe 
-                    srcDoc={codeOutput} 
-                    title=" " 
-                    width="80%" 
-                    height="200" 
-                    loading="lazy" 
-                    sandbox="allow-scripts"
-                    // frameBorder="0"
-                    />
+                        <iframe 
+                        srcDoc={codeOutput} 
+                        title=" " 
+                        width="80%" 
+                        height="200" 
+                        loading="lazy" 
+                        sandbox="allow-scripts"
+                        // frameBorder="0"
+                        />
                     </div>
-                    <h2>type your input code in the below IDE</h2>
+                    <h2>Type your input code in the below IDE</h2>
                    <div className="editors-container">
                    <Editor
                         language="xml"
