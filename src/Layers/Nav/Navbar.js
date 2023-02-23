@@ -6,7 +6,7 @@ import SearchBar from '../../Componets/search-bar'
 import logo from '../../Assets/Images/avatar.png'
 import {useSelector, useDispatch} from 'react-redux'
 import {logout, reset} from '../../Features/Auth/authSlice'
-import AutoOpen from '../../Componets/AutoOpen'
+
 const Navbar = ()=>{
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -48,7 +48,6 @@ const Navbar = ()=>{
                 {/* nav middle*/}
                 <div className="nav_middle_container">
                     <SearchBar/>
-                    <AutoOpen/>
                 </div>
                 {/* nav left */}
                 <div className="nav_left_container">

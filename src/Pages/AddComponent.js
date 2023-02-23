@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { AddComponent } from '../Redux/reducers/componentReducer';
-import {  GetCategory } from '../Redux/reducers/categoryReducer';
+import { GetCategory } from '../Redux/reducers/categoryReducer';
 import { useNavigate } from "react-router-dom";
 import Editor from '../Componets/Editor'
 import useLocalStorage from '../Componets/useLocalStorage'
@@ -15,11 +15,11 @@ const Landing = () => {
     const navigate = useNavigate();
     useEffect(() => {
         dispatch(GetCategory())
-      }, []);
+    }, []);
     const error = categorystore.error
     const ref = Math.random().toString(36).slice(2);
     const [component, setComponent] = useState({
-        user_id:'',
+        user_id: '',
         category_id: '',
         name: '',
         discription: '',
@@ -29,7 +29,7 @@ const Landing = () => {
     })
     const { category_id, name, discription, code, css, html } = component;
     const onChange = (e) => {
-        setComponent({ ...component, [e.target.name]: e.target.value ,['user_id']:user.id})
+        setComponent({ ...component, [e.target.name]: e.target.value, ['user_id']: user.id })
     }
     function validate() {
 
@@ -38,15 +38,15 @@ const Landing = () => {
         e.preventDefault();
         validate();
         console.log(component)
-         dispatch(AddComponent(component))
+        dispatch(AddComponent(component))
         // navigate('/components')
         setComponent({
             category_id: '',
             name: '',
             discription: '',
             code: '',
-            css:'',
-            html:''
+            css: '',
+            html: ''
         })
 
     }
@@ -65,52 +65,50 @@ const Landing = () => {
             </html>
           `)
         }, 250)
-    
+
         return () => clearTimeout(timeout)
-      }, [htmlSample, cssSample, jsSample])
-    
+    }, [htmlSample, cssSample, jsSample])
+
     return (
         <div className="admin_main_container">
-
             <div className='component_container'>
                 {error ? <div className='show_error'><h2>{error}</h2></div> : ''}
                 <div className='compnent-element hdr-mrg '>
                     <h1 className='hdr-title-marg'>Output</h1>
                     {/* codepen compiler for react here */}
                     <div>
-                        <iframe 
-                        srcDoc={codeOutput} 
-                        title=" " 
-                        width="80%" 
-                        height="200" 
-                        loading="lazy" 
-                        sandbox="allow-scripts"
+                        <iframe
+                            srcDoc={codeOutput}
+                            title=" "
+                            width="80%"
+                            height="200"
+                            loading="lazy"
+                            sandbox="allow-scripts"
                         // frameBorder="0"
                         />
                     </div>
                     <h2>Type your input code in the below IDE</h2>
-                   <div className="editors-container">
-                   <Editor
-                        language="xml"
-                        value={htmlSample}
-                        displayName='Html'
-                        onChange={setHtmlSample}
-                        
-                    />
+                    <div className="editors-container">
+                        <Editor
+                            language="xml"
+                            value={htmlSample}
+                            displayName='Html'
+                            onChange={setHtmlSample}
+                        />
 
-                    <Editor
-                        language="css"
-                        value={cssSample}
-                        displayName='Css'
-                        onChange={setCssSample}
-                    />
-                    <Editor
-                        language="javascript"
-                        value={jsSample}
-                        displayName='Jsx'
-                        onChange={setJsSample}
-                    />
-                   </div>
+                        <Editor
+                            language="css"
+                            value={cssSample}
+                            displayName='Css'
+                            onChange={setCssSample}
+                        />
+                        <Editor
+                            language="javascript"
+                            value={jsSample}
+                            displayName='Jsx'
+                            onChange={setJsSample}
+                        />
+                    </div>
                     <form onSubmit={onSubmit}>
                         <div className='flex' style={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
                             <label className='sub-title-marg' htmlFor='Cname'>Name</label>
@@ -119,10 +117,10 @@ const Landing = () => {
                             <textarea className='sub-title-marg' type='text' id='Cdescription' value={discription} placeholder='Description' name='discription' onChange={onChange} ></textarea>
                             <label className='sub-title-marg' htmlFor='category'>Category</label>
                             <select name="category_id" className="input" id="categorys" value={category_id} onChange={onChange} required>
-                                {}
+                                { }
                                 <option value="" selected="selected" >Select an Option</option>
                                 {categorys.map(category => (
-                                    <option  key={category.id} value={category.id}>{category.title}</option>
+                                    <option key={category.id} value={category.id}>{category.title}</option>
                                 ))}
                             </select>
                             <label className='sub-title-marg' htmlFor='html-co'>Html Code Input</label>
@@ -139,7 +137,6 @@ const Landing = () => {
                     </form>
                 </div>
                 <br></br>
-
             </div>
         </div>
 
