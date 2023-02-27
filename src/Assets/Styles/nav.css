@@ -19,8 +19,12 @@ nav{
     background-color: var(--clr-primary-1);
     border-bottom: 1px solid var(--clr-border-dark);
 }
+.nav_middle_container{
+    position: relative;
+
+}
 .nav_middle_container input{
-    width: 17rem;
+    /* width: 17rem; */
 }
 .logo{
     width: 40px;

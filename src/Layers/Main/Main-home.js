@@ -1,5 +1,5 @@
-
-import { React, useState, useEffect } from 'react'
+import React from 'react'
+import { useState, useEffect } from 'react'
 import InfoCard from '../../Componets/Info-card'
 import ComponentCard from '../../Componets/componet-card'
 
@@ -7,8 +7,11 @@ import { infoCards } from '../../Assets/Data/data'
 import { useDispatch, useSelector } from 'react-redux'
 import { homeComponet } from '../../Features/Dashboard/dashboardSlice'
 import Spinner from '../../Componets/spinner'
+import { AppContext, AppProvider } from '../../context/context'
 
 const MainHome = ()=>{
+    const {searchRequest, error, isSearchLoading } = React.useContext(AppContext)
+
     const [cardData, setCardData] = useState(infoCards)
 
     const {h_components, isLoading, isSuccess } = useSelector( (state)=> state.dashboard )
@@ -20,7 +23,7 @@ const MainHome = ()=>{
         dispatch(homeComponet())
     },[])
 
-    if(isLoading){
+    if(isLoading || isSearchLoading){
         return(
             <Spinner/>
         )
