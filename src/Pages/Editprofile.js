@@ -27,7 +27,7 @@ function Editprofile () {
   useEffect(() => {
     if (Object.keys(errors).length === 0) {
       const userData = new FormData();
-      userData.append('uimage', file);
+
       userData.append('firstname', newUser.firstname);
       userData.append('lastname', newUser.lastname);
       userData.append('email', newUser.email);
@@ -62,8 +62,7 @@ function Editprofile () {
       <div className="right">
         <h2 className="edit_h2">Edit Profile</h2>
         <form className="form-style-1" onSubmit={updateUser}>
-          <img src={file ? URL.createObjectURL(file) : user.uimage} alt="" className="edit_img" />
-          <input type="file" name="avatar" id="avatar" className="imgpic input_field_img " onChange={handleChange} />
+          
           <label>Full Name</label>
           <input type="text" className="field-divided" placeholder="First" name="firstname" onChange={handleInput} value={newUser.firstname} />
           {errors?.firstname && <p className="error">{errors.firstname}</p>}
