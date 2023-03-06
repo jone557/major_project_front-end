@@ -9,7 +9,7 @@ import axios from "axios";
 import swal from 'sweetalert';
 import {useSelector, useDispatch} from 'react-redux'
 import { userUpdate } from "../Features/updateSlice";
-
+import  {userInfo}  from "../Features/Auth/authSlice"
 
 function Editprofile () {
   const { user } = useSelector((state) => state.auth);
@@ -24,25 +24,10 @@ function Editprofile () {
   });
   const [loading, setLoading] = useState(true);
 
+  const dispatch = useDispatch()
   useEffect(() => {
-    if (Object.keys(errors).length === 0) {
-      const userData = new FormData();
-
-      userData.append('firstname', newUser.firstname);
-      userData.append('lastname', newUser.lastname);
-      userData.append('email', newUser.email);
-      userData.append('github', newUser.github);
-      userData.append('linkedin', newUser.linkedin);
-      axios.post(`/updateprofile/${user.id}`, userData)
-        .then((res) => {
-          if (res.data.status === 200) {
-            swal('Success', res.data.message, 'success');
-          } else if (res.data.status === 404) {
-            swal('Error', res.data.message, 'error');
-          }
-        });
-    }
-  }, [errors, file]);
+    dispatch(userInfo())
+  }, [dispatch]);
 
   const handleInput = (e) => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
@@ -54,6 +39,22 @@ function Editprofile () {
 
   const updateUser = (e) => {
     e.preventDefault();
+    const userData = new FormData();
+
+      userData.append('firstname', newUser.firstname);
+      userData.append('lastname', newUser.lastname);
+      userData.append('email', newUser.email);
+      userData.append('github', newUser.github);
+      userData.append('linkedin', newUser.linkedin);
+     
+    axios.post(`/updateprofile/${user.id}`, userData)
+    .then((res) => {
+      if (res.data.status === 200) {
+        swal('Success', res.data.message, 'success');
+      } else if (res.data.status === 404) {
+        swal('Error', res.data.message, 'error');
+      }
+    });
     setErrors(Pvalidation(newUser));
   };
 
@@ -62,7 +63,6 @@ function Editprofile () {
       <div className="right">
         <h2 className="edit_h2">Edit Profile</h2>
         <form className="form-style-1" onSubmit={updateUser}>
-          
           <label>Full Name</label>
           <input type="text" className="field-divided" placeholder="First" name="firstname" onChange={handleInput} value={newUser.firstname} />
           {errors?.firstname && <p className="error">{errors.firstname}</p>}

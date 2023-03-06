@@ -37,18 +37,19 @@ export const Profile = () => {
 
  // redirect to edit profile page
  const toEditProfile = ()=>{
-  axios.get(`/editprofile/${user.id}`).then(res=>{       
-    if(res.data.status === 200){
-      console.log(res.data)
-        // setUserInput(res.data.user);
-        // setUserImage(res.data.user);
-        // setLoading(false);
-        navigate(`/Editprofile`)
-    }
-    else if(res.data.status === 404){
-        swal("Error",res.data.message,"error");
-    }
-  })
+
+   navigate(`/Editprofile`)
+  // axios.get(`/editprofile/${user.id}`).then(res=>{       
+  //   if(res.data.status === 200){
+  //     console.log(res.data)
+  //       // setUserInput(res.data.user);
+  //       // setUserImage(res.data.user);
+  //       // setLoading(false);
+  //   }
+  //   else if(res.data.status === 404){
+  //       swal("Error",res.data.message,"error");
+  //   }
+  // })
 }
   const toUploadComponent = ()=>{
     navigate(`/AddComponent`)
@@ -92,14 +93,13 @@ export const Profile = () => {
 	</div>
 	   <hr/>
 
-   <div className="lower">
+   {/* <div className="lower"> */}
    
-   <section>
-     <div className="cards_container margin_top_4 margin_section">
+   {/* <section> */}
+    <div className="cards_container_profile margin_top_4 margin_section">
      {
           siUser_component.map((item)=>{
               // console.log(user)
-              
               return <ComponentCard key={item.id} {...item}/>
           })
       }
@@ -110,9 +110,9 @@ export const Profile = () => {
             <ComponentCard/>
             <ComponentCard/>
         </div> */}
-      </section>
+      {/* </section> */}
    	
-   </div>
+   {/* </div> */}
     </div>
   )
 }
