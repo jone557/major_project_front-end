@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { SingleComponent as Unique } from '../Redux/reducers/componentReducer';
 import { UpdateComponentview as Viewes } from '../Redux/reducers/componentReducer';
 import { UpdateComponentLike as Like } from '../Redux/reducers/componentReducer';
+import { StoreInteraction } from '../Redux/reducers/userInteractionReducer';
 import Editor from '../Componets/Editor'
 import { AiFillHeart } from 'react-icons/ai'
 import axios from 'axios';
@@ -13,12 +14,13 @@ import Spinner from '../Componets/spinner';
 function SingleComponent() {    
     const dispatch = useDispatch();
     let { id } = useParams();
+    const user = useSelector((state) => state.auth.user)
     useEffect(() => {
         dispatch(Unique(id))
         dispatch(Viewes(id))
+        if(user) dispatch(StoreInteraction(id))
     }, [id]);
 
-    const user = useSelector((state) => state.auth.user)
     const componentstore = useSelector((state) => state.component)
     const component = componentstore.si_component
     const code = componentstore.code
