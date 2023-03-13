@@ -15,10 +15,22 @@ function SingleComponent() {
     const dispatch = useDispatch();
     let { id } = useParams();
     const user = useSelector((state) => state.auth.user)
+    const [interaction, setInteraction]= useState({
+        user_id: user? user.id:'',
+        component_id: id
+    })
+     
+
     useEffect(() => {
         dispatch(Unique(id))
         dispatch(Viewes(id))
-        if(user) dispatch(StoreInteraction(id))
+        if(user) {
+            dispatch(StoreInteraction(interaction))
+            setInteraction({
+                        user_id: '',
+                        component_id: ''
+                    })
+        }
     }, [id]);
 
     const componentstore = useSelector((state) => state.component)

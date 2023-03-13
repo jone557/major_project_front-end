@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { GetCategory } from './Redux/reducers/categoryReducer';
 import { GetComponent } from './Redux/reducers/componentReducer';
+import { SingleUserInteraction } from './Redux/reducers/userInteractionReducer';
 import RequiredAuth from './Componets/RequiredAuth';
 // ****user pages ****
 import Home from './Pages/Home'
@@ -65,10 +66,12 @@ axios.defaults.withCredentials = true;
 
 function App() {
   const dispatch = useDispatch()
+  const {user} = useSelector((state)=> state.auth)
     useEffect(()=>{
       // res = dispatch(userInfo())
       dispatch(GetCategory())
       dispatch(GetComponent())
+      if(user) dispatch(SingleUserInteraction(user.id))
   
     },[dispatch]);
 
