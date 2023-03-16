@@ -9,6 +9,7 @@ import { AiFillHeart } from 'react-icons/ai'
 import axios from 'axios';
 import Spinner from '../Componets/spinner';
 import CommentSection from '../Componets/CommentSection';
+import CommentCard from '../Componets/CommentCard';
 
 function SingleComponent() {    
     const dispatch = useDispatch();
@@ -109,6 +110,7 @@ function SingleComponent() {
 
             </div>
             <CommentSection />
+            
         </div>
         
         
