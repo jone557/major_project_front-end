@@ -1,6 +1,6 @@
 import React,{ useState, useEffect } from 'react'
 import ComponentCard from '../Componets/componet-card'
-import Logo from './../Assets/Images/avatar.png'
+import Logo from './../Assets/Images/img_avatar.png'
 import {  useNavigate } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux'
 import axios from 'axios';
