@@ -30,6 +30,7 @@
   margin-bottom: 20px;
   resize: none;
   height: 120px;
+  background-color: #3b3d42;;
 }
 
 .comment-form-actions {
@@ -47,6 +48,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(2, 2, 2, 2);
+  
 }
 
 .comment-form-actions button:hover {
