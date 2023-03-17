@@ -53,6 +53,9 @@
 
 .comment-form-actions button:hover {
   background-color: #64676c;
+  transform: translateY(2px);
+
+  
 }
 
 .comments-heading {
