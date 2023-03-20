@@ -25,6 +25,10 @@ const Navbar = ()=>{
     const toProfile = ()=>{
         navigate('/Profile')
     }
+    // redirect to likes page
+    const toLikes = ()=>{
+        navigate('/likes')
+    }
 
     const [showLinks, setShowLinks] = useState(false)
     useEffect(()=>{
@@ -66,6 +70,7 @@ const Navbar = ()=>{
                                             <ul>
                                                 <li><h3>Hi,  {user.firstname}</h3></li>
                                                 <li><p className='link' onClick={toProfile} >Profile</p></li>
+                                                <li><p className='link' onClick={toLikes} >Likes</p></li>
                                                 <li><p className='link' onClick={onLogout} >Logout</p></li>
                                             </ul>
                                         </div>

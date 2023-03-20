@@ -15,11 +15,14 @@ function SingleComponent() {
     const dispatch = useDispatch();
     let { id } = useParams();
     const user = useSelector((state) => state.auth.user)
+    
     const [interaction, setInteraction]= useState({
         user_id: user? user.id:'',
         component_id: id
     })
-     
+    const [isLiked, setIsLiked] = useState(false);
+
+   
 
     useEffect(() => {
         dispatch(Unique(id))
@@ -49,8 +52,10 @@ function SingleComponent() {
       }, [code.HTML, code.CSS, code.JS]) 
     const handleLike = () => {
         if (user) {
-            // dispatch(Like([id, user.id]));
-            document.querySelector('#cop' + id).style.color = 'red';
+            const like = !isLiked;
+            setIsLiked(like);
+            setIsLiked(like);
+            dispatch(Like([id, user.id, like]));
         }
     }
  
@@ -87,7 +92,7 @@ function SingleComponent() {
                 <div className='code_flex_container '>
                     <h1 className='comp-sub-elem-hdr sub-elem-hdr-marg'>code</h1>
                     {user ?
-                        <AiFillHeart id={'cop' + (id)} title='like this component' className='comp-sub-elem-hdr sub-elem-hdr-marg like_button' onClick={() => {
+                        <AiFillHeart id={'cop' + (id)} title='like this component' className={`comp-sub-elem-hdr sub-elem-hdr-marg ${isLiked ? "like_button":""}`} onClick={() => {
                             handleLike()
                         }} />
                         : ''}

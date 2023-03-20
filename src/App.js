@@ -17,6 +17,8 @@ import Components from './Pages/Components';
 import DemoIframe from './Pages/demo_iframe'
 import AllUsers from './Pages/Allusers'
 import AllComponents from './Pages/Admin/allComponents';
+import UserLikes from './Pages/UserLikes';
+
 // import Error from './Pages/Error';
 // ****admin pages*****
 import Dashboard from './Pages/Admin/dashboard';
@@ -83,6 +85,7 @@ function App() {
           <Route path='signup' element={<Signup />} />
           <Route path='login' element={<Login />} />
           <Route path='profile' element={<Profile />} />
+          <Route path='likes' element={<UserLikes />} />
           <Route path='editprofile' element={<Editprofile />} />
           <Route path='components/:id' element={<SingleComponent />} />
           <Route path='components/updateCategory/:id' element={<UpdateCategory />} />

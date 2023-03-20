@@ -5,6 +5,8 @@ import swal from 'sweetalert';
 const initialState = {
     loading: false,
     interactions: '',
+    recommendation: [],
+    UserLikedComponent: [],
     error: ''
 }
 
@@ -20,6 +22,18 @@ export const StoreInteraction = createAsyncThunk('user/interaction', (interactio
 //get singel user interaction
 export const SingleUserInteraction = createAsyncThunk('single-user-interaction/id', (id) => {
     return axios.get(`http://127.0.0.1:8000/api/singelUser/interaction/${id}`)
+        .then((response) => response.data)
+})
+//get singel user interaction
+export const SingleUserRecommendation = createAsyncThunk('single-user-recommendation/id', (id) => {
+
+    return axios.get(`http://127.0.0.1:8000/api/singelUser/recommendation/${id}`)
+        .then((response) => response.data)
+})
+//get singel component likes 
+export const GetUserLikedComponent = createAsyncThunk('single-user-likes/id', (id) => {
+
+    return axios.get(`http://127.0.0.1:8000/api/userlike/${id}/components`)
         .then((response) => response.data)
 })
 
@@ -52,11 +66,37 @@ const componentSlice = createSlice({
         })
         builder.addCase(SingleUserInteraction.fulfilled, (state, action) => {
             state.loading = false
-            state.interactions= action.payload.message
+            state.interactions= action.payload.message[0].interactions
         })
         builder.addCase(SingleUserInteraction.rejected, (state, action) => {
             state = []
             state.error = action.error.message
+        })
+        //SingleUserRecommendation
+        builder.addCase(SingleUserRecommendation.pending, (state, action) => {
+            state.loading = true
+        })
+        builder.addCase(SingleUserRecommendation.fulfilled, (state, action) => {
+            state.loading = false
+            state.recommendation= action.payload.message
+        })
+        builder.addCase(SingleUserRecommendation.rejected, (state, action) => {
+            state = []
+            state.error = action.error.message
+            console.log(action)
+        })
+        //Component likes
+        builder.addCase(GetUserLikedComponent.pending, (state, action) => {
+            state.loading = true
+        })
+        builder.addCase(GetUserLikedComponent.fulfilled, (state, action) => {
+            state.loading = false
+            state.UserLikedComponent= action.payload.likedComponents
+        })
+        builder.addCase(GetUserLikedComponent.rejected, (state, action) => {
+            state.UserLikedComponent = []
+            state.error = action.error.message
+            console.log(action)
         })
     }
 })

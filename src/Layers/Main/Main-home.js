@@ -8,8 +8,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { homeComponet } from '../../Features/Dashboard/dashboardSlice'
 import Spinner from '../../Componets/spinner'
 import { AppContext, AppProvider } from '../../context/context'
+import { SingleUserRecommendation } from '../../Redux/reducers/userInteractionReducer';
 
 const MainHome = ()=>{
+    const user = useSelector((state) => state.auth.user)
+    const priviousInteraction = useSelector((state) => state.userInteraction.interactions)
+    
+    // useEffect(()=>{
+    //     if(user) dispatch(SingleUserRecommendation(user.id))
+    // },[user])
     const {searchRequest, error, isSearchLoading } = React.useContext(AppContext)
 
     const [cardData, setCardData] = useState(infoCards)
@@ -56,6 +63,7 @@ const MainHome = ()=>{
                     }
                 </div>
             </section>
+
 
             <section>
                 <div className="cards_container margin_top_4 margin_section">

@@ -28,7 +28,7 @@
 .sub-title-marg{
     margin: 0.5rem 0 0 0;
 }
-.like_button:hover{
+.like_button{
  color: red;
  cursor: pointer;
 }

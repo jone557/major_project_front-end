@@ -43,8 +43,8 @@ export const UpdateComponentview = createAsyncThunk('component/update-componentv
         .then((response) => response.data)
 })
 //update component like
-export const UpdateComponentLike = createAsyncThunk('component/update-componentlike', (id) => {
-    return axios.put(`http://127.0.0.1:8000/api/update-componentlike/${id}`)
+export const UpdateComponentLike = createAsyncThunk('component/update-componentlike', ([id, user_id, like]) => {
+        return axios.post(`http://127.0.0.1:8000/api/update-componentlike`,{id, user_id, like})
         .then((response) => response.data)
 })
 
