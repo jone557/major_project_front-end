@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { SingleComponent as Unique } from '../Redux/reducers/componentReducer';
 import { UpdateComponentview as Viewes } from '../Redux/reducers/componentReducer';
 import { UpdateComponentLike as Like } from '../Redux/reducers/componentReducer';
-import { StoreInteraction } from '../Redux/reducers/userInteractionReducer';
+import { StoreInteraction,  GetUserLikedComponent } from '../Redux/reducers/userInteractionReducer';
 import Editor from '../Componets/Editor'
 import { AiFillHeart } from 'react-icons/ai'
 import axios from 'axios';
@@ -22,25 +22,36 @@ function SingleComponent() {
     })
     const [isLiked, setIsLiked] = useState(false);
 
-   
+    const componentstore = useSelector((state) => state.component)
+    const component = componentstore.si_component
+    const code = componentstore.code
+    const uComponents = useSelector((state) => state.userInteraction.UserLikedIds)
+
+    const [codeOutput, setCodeOutput] = useState('');
+    const componentId = parseInt(id);
 
     useEffect(() => {
         dispatch(Unique(id))
         dispatch(Viewes(id))
         if(user) {
-            dispatch(StoreInteraction(interaction))
+            // dispatch(StoreInteraction(interaction))
             setInteraction({
                         user_id: '',
                         component_id: ''
                     })
+            dispatch(GetUserLikedComponent(user.id))
+        }
+        if(uComponents.length !== 0){
+            uComponents.indexOf(componentId) === -1 ?
+                console.log(`${id} is not an element of array A`)
+            :
+                setIsLiked(true);
+              
         }
     }, [id]);
 
-    const componentstore = useSelector((state) => state.component)
-    const component = componentstore.si_component
-    const code = componentstore.code
+   
 
-    const [codeOutput, setCodeOutput] = useState('');
     useEffect(() => {
             setCodeOutput(`
             <html>
@@ -54,11 +65,11 @@ function SingleComponent() {
         if (user) {
             const like = !isLiked;
             setIsLiked(like);
-            setIsLiked(like);
             dispatch(Like([id, user.id, like]));
         }
     }
- 
+   
+    
     if (componentstore.loading) {
         return (
             <Spinner />
@@ -106,6 +117,7 @@ function SingleComponent() {
                         language="xml"
                         value={code.HTML}
                         displayName='Html'
+                        onChange= ''
                     />
 
                     <Editor

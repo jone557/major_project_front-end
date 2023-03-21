@@ -9,15 +9,34 @@ import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { display } from '@mui/system'
 import { DelateComponent } from '../Redux/reducers/componentReducer'
+import swal from 'sweetalert';
 
 const ComponentCard = ({id, user_id, name, category_id, viewes, likes, created_at, firstname})=>{
     const {user, isLoading} = useSelector((state)=> state.auth)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const onEdit = ()=>{
+        user_id !==user.id ?
+            swal({
+                title: "acces denied",
+                text: 'you dont have a permition to edit this component',
+                icon: "error",
+                buttons: "Ok"
+            })
+            
+         :
         navigate(`/component/edit/${id}`)
     }
     const onDelete = ()=>{
+        user_id !==user.id ?
+            swal({
+                title: "acces denied",
+                text: 'you dont have a permition to delate this component',
+                icon: "error",
+                buttons: "Ok"
+            })
+            
+         :
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",

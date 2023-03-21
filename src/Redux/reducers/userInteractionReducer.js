@@ -7,6 +7,7 @@ const initialState = {
     interactions: '',
     recommendation: [],
     UserLikedComponent: [],
+    UserLikedIds: [],
     error: ''
 }
 
@@ -92,6 +93,7 @@ const componentSlice = createSlice({
         builder.addCase(GetUserLikedComponent.fulfilled, (state, action) => {
             state.loading = false
             state.UserLikedComponent= action.payload.likedComponents
+            state.UserLikedIds= action.payload.likedComponentsId
         })
         builder.addCase(GetUserLikedComponent.rejected, (state, action) => {
             state.UserLikedComponent = []
