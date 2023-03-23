@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { GetCategory } from './Redux/reducers/categoryReducer';
 import { GetComponent } from './Redux/reducers/componentReducer';
 import { SingleUserInteraction } from './Redux/reducers/userInteractionReducer';
+import { getImage } from './Redux/reducers/imageReducer';
 import RequiredAuth from './Componets/RequiredAuth';
 // ****user pages ****
 import Home from './Pages/Home'
@@ -75,6 +76,8 @@ function App() {
       dispatch(GetComponent())
       if(user) dispatch(SingleUserInteraction(user.id))
   
+      if(user) dispatch(getImage(user.id))
+      
     },[dispatch]);
 
   return <>

@@ -9,7 +9,8 @@ import Editor from '../Componets/Editor'
 import { AiFillHeart } from 'react-icons/ai'
 import axios from 'axios';
 import Spinner from '../Componets/spinner';
-
+import CommentSection from '../Componets/CommentSection';
+import CommentCard from '../Componets/CommentCard';
 
 function SingleComponent() {    
     const dispatch = useDispatch();
@@ -60,7 +61,8 @@ function SingleComponent() {
               <body>${code.HTML}</body>
             </html>
           `)
-      }, [code.HTML, code.CSS, code.JS]) 
+    }, [code.HTML, code.CSS, code.JS]) 
+
     const handleLike = () => {
         if (user) {
             const like = !isLiked;
@@ -75,6 +77,7 @@ function SingleComponent() {
             <Spinner />
         )
     }
+
     return (
         <div className='comp-sub-section sub-section-marg'>
             <div className='hdr-mrg'>
@@ -133,10 +136,17 @@ function SingleComponent() {
 
                 </div>
 
+               
 
             </div>
+            <CommentSection />
+            
         </div>
+        
+        
     )
+    
+    
 }
 
 export default SingleComponent

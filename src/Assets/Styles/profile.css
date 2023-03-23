@@ -103,3 +103,9 @@ hr{
 	position: relative;
 	/* top: 60px; */
 }
+
+
+.cards_container_profile {
+	display: flex;
+	flex-wrap: wrap;
+}

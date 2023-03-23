@@ -2,7 +2,7 @@
 import Button from '../Componets/button'
 import {AiFillEye}from 'react-icons/ai'
 import {AiFillHeart} from 'react-icons/ai'
-import defaultAvatar from '../Assets/Images/avatar.png'
+import defaultAvatar from '../Assets/Images/img_avatar.png'
 import '../Assets/Styles/profile_card.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
