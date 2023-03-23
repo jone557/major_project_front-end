@@ -16,47 +16,50 @@ const ComponentCard = ({id, user_id, name, category_id, viewes, likes, created_a
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const onEdit = ()=>{
-        user_id !==user.id ?
+       
+        ( user && user?.id == user_id ) || user?.role == 'admin' ?
+        
+         navigate(`/component/edit/${id}`)
+        :
             swal({
                 title: "acces denied",
                 text: 'you dont have a permition to edit this component',
                 icon: "error",
                 buttons: "Ok"
             })
-            
-         :
-        navigate(`/component/edit/${id}`)
     }
     const onDelete = ()=>{
-        user_id !==user.id ?
+        ( user && user?.id == user_id ) || user?.role == 'admin' ?
+        
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                dispatch(DelateComponent(id))
+                navigate('/')
+                }
+            })
+        :
             swal({
                 title: "acces denied",
                 text: 'you dont have a permition to delate this component',
                 icon: "error",
                 buttons: "Ok"
             })
-            
-         :
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-            dispatch(DelateComponent(id))
-              navigate('/')
-            }
-          })
     }
     return<>
-        <div className="card wrapper align_items_c" onClick={() => { navigate('/components/' + (id)) }}>
-           <div className="card_top center_center gap-1">
-                <h3 className='center_centeer'>{name}</h3>
-           </div>
+   
+        <div className="card wrapper align_items_c" >
+        <div onClick={() => { navigate('/components/' + (id)) }}>
+            <div className="card_top center_center gap-1">
+                    <h3 className='center_centeer'>{name}</h3>
+            </div>
            <div className="card_bottom center_center gap-1">
                 <div className='card_detail_left center_center gap-0_5'>
                     <a href=""><img src={defaultAvatar} className='profile_img' alt="profile" /></a>
@@ -69,6 +72,8 @@ const ComponentCard = ({id, user_id, name, category_id, viewes, likes, created_a
                     <AiFillEye/><span>{viewes}</span>
                 </div>
            </div>
+        </div>
+          
            {
                ( user && user?.id == user_id ) || user?.role == 'admin'? (<>
                      <div className="content ">

@@ -53,7 +53,7 @@ const SingelCategory = () => {
                     <h1 className='hdr-title-marg'>{category.title}</h1>
                     <p className='comp-sub-title sub-title-marg'>{category.discription}</p>
                 </div>
-                <div className='comp-sub-section sub-section-marg'>
+                <div className='catg-sub-section sub-section-marg'>
                    
                     <div className='comp-snipt-container'>
                         <div>

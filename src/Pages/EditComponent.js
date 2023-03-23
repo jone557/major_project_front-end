@@ -20,15 +20,16 @@ const EditComponent = () => {
     const dispatch = useDispatch();
     
     useEffect(() => {
+        
         dispatch(SingleComponent(id))
         dispatch(GetCategory())
         if(si_component.code_referance){
             axios.get(`http://127.0.0.1:8000/api/component/code/${si_component.code_referance}`)
-            .then((response) => setComponent({ ...si_component, 
-                ['code']: response.data.message.JS, 
-                ['css']: response.data.message.CSS,
-                ['html']: response.data.message.HTML 
-            }))
+            .then((response) => (
+                 setHtmlSample(response.data.message.HTML),
+                 setJsSample(response.data.message.JS), 
+                 setCssSample(response.data.message.CSS)     
+            ))
             .catch((err) => { console.log(err) })
     }
    
@@ -66,9 +67,9 @@ const EditComponent = () => {
 
     }
       //new change
-      const [jsSample, setJsSample] = useState(code);
-      const [htmlSample, setHtmlSample] = useState(html);
-      const [cssSample, setCssSample] = useState( css);
+      const [jsSample, setJsSample] = useState('');
+      const [htmlSample, setHtmlSample] = useState('');
+      const [cssSample, setCssSample] = useState('');
       const [codeOutput, setCodeOutput] = useState('');
       useEffect(() => {
           const timeout = setTimeout(() => {

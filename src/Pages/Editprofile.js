@@ -24,21 +24,17 @@ function Editprofile() {
   });
   const [image, setImage] = useState("");
   const [display, setDisplay] = useState("");
-  const [loading, setLoading] = useState(true);
-
+  
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(userInfo());
   }, [dispatch]);
-
+ 
   const handleInput = (e) => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
   };
 
   const handleImageUpload = async(e) => {
-    const imgg = await axios.get(`http://127.0.0.1:8000/api/userImage/${user.id}`)
-    console.log('imgg');
-    console.log(imgg)
 
 
     const file = e.target.files[0];

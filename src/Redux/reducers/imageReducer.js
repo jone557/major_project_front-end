@@ -31,8 +31,7 @@ const componentSlice = createSlice({
             state.loading = true
         })
         builder.addCase(getImage.fulfilled, (state, action) => {
-            // state.image = action.payload
-            console.log(action.payload)
+            state.image = action.payload
             state.loading = false
         })
         builder.addCase(getImage.rejected, (state, action) => {
