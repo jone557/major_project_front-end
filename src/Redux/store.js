@@ -6,6 +6,8 @@ import componentReducer from './reducers/componentReducer'
 import allUsersSlice from '../Features/AllUsers/allUsersSlice'
 import dashboardSlice from "../Features/Dashboard/dashboardSlice";
 import allComponentSlice from "../Features/AllComponents/allComponentSlice";
+import imageReducer from './reducers/imageReducer'
+
 
 const store = configureStore(
   {
@@ -16,6 +18,7 @@ const store = configureStore(
       category: categoryReducer,
       component: componentReducer,
       allComponents: allComponentSlice,
+      userImage:imageReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
       serializableCheck: false

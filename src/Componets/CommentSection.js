@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 import CommentCard from '../Componets/CommentCard';
 import { useSelector, useDispatch } from 'react-redux'
 
-
 function CommentSection(props) {
   const [comments, setComments] = useState([]);
   const [newCommentBody, setNewCommentBody] = useState('');
@@ -31,6 +30,8 @@ function CommentSection(props) {
           confirmButtonColor: '#3085d6',
           confirmButtonText: 'OK'
         });
+        
+        fetchComments();
       }
     } catch (error) {
       console.log(error.response);
@@ -44,24 +45,23 @@ function CommentSection(props) {
     }
   };
 
-  useEffect(() => {
-    async function fetchComments() {
-      try {
-        const response = await axios.get(`/comments/${id}`);
-        console.log(response.data)
-        if (response) {
-          setComments(response.data.comments);
-        }
-      } catch (error) {
-        console.log(error);
+  const fetchComments = async () => {
+    try {
+      const response = await axios.get(`/comments/${id}`);
+      console.log(response.data)
+      if (response) {
+        setComments(response.data.comments);
       }
+    } catch (error) {
+      console.log(error);
     }
+  }
 
+  useEffect(() => {
     fetchComments();
   }, [id]);
 
   return (
-
     <div className="comment-section-container">
       <div className="comment-form-container">
         <form className="comment-form" onSubmit={handleSubmit}>
@@ -77,25 +77,17 @@ function CommentSection(props) {
           </div>
         </form>
       </div>
-
-
       <div className="comment-list">
-        <div className="comment-list">
-          <h2 className='comments-heading'>Comments:</h2>
-          <ul className="comment-list">
-            {comments.map((comment) => (
-              <li key={comment.id}>
-                <CommentCard {...comment} />
-              </li>
-            ))}
-          </ul>
-        </div>
+        <h2 className='comments-heading'>Comments:</h2>
+        <ul className="comment-list">
+          {comments.map((comment) => (
+            <li key={comment.id}>
+              <CommentCard {...comment} />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
-
-
-
-
   );
 }
 
