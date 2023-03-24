@@ -16,9 +16,7 @@ const ComponentCard = ({id, user_id, name, category_id, viewes, likes, created_a
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const onEdit = ()=>{
-       
         ( user && user?.id == user_id ) || user?.role == 'admin' ?
-        
          navigate(`/component/edit/${id}`)
         :
             swal({
