@@ -14,6 +14,7 @@ import { userInfo } from "../Features/Auth/authSlice"
 
 function Editprofile() {
   const { user } = useSelector((state) => state.auth);
+  const imgURL = useSelector((state) => state.userImage.image);
   const [errors, setErrors] = useState({});
   const [newUser, setNewUser] = useState({
     firstname: user.firstname,
@@ -68,7 +69,7 @@ function Editprofile() {
       imageData.append("image", image);
       axios.post(`/uploadImage/${user.id}`, imageData).then((res) => {
         if (res.data.status === 200) {
-          console.log(res.data.message);
+          swal('Success', res.data.message, 'success');
         } else {
           console.log(res.data.message);
         }
@@ -87,14 +88,14 @@ function Editprofile() {
       });
     setErrors(Pvalidation(newUser));
   };
-
+  const imgValue =`http://127.0.0.1:8000${imgURL}`
   return (
     <div>
       <div className="right">
         <h2 className="edit_h2">Edit Profile</h2>
         <form className="form-style-1" onSubmit={updateUser}>
 
-          <img src={display || Logo} className="edit_img" name="uimage" />
+          <img src={display || imgValue} className="edit_img" name="uimage" />
           <input type="file" name="image" id="image" className="imgpic input_field_img " onChange={handleImageUpload} accept=".jpg,.png,.jpeg" />
 
           <label>Full Name</label>

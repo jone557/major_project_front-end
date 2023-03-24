@@ -23,8 +23,10 @@ nav{
     position: relative;
 
 }
-.nav_middle_container input{
-    /* width: 17rem; */
+.nav_img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
 }
 .logo{
     width: 50px;

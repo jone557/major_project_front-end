@@ -11,6 +11,7 @@ const Navbar = ()=>{
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const {user} = useSelector((state)=> state.auth)
+    const imgURL = useSelector((state) => state.userImage.image);
     // useEffect(()=>{
     //      dispatch(userInfo())
     // },[]);
@@ -38,6 +39,7 @@ const Navbar = ()=>{
             setShowLinks(false)
         }
     }, [showLinks])
+    const imgValue =`http://127.0.0.1:8000${imgURL}`
     return(
         <nav>
             {/* nav header */}
@@ -62,9 +64,14 @@ const Navbar = ()=>{
                                 <li>
                                     <div className="profile_circle_container">
                                         <div className='profile_circle center_center'>
-                                            <h4>
-                                                {user.firstname.charAt(0).toUpperCase() + user.lastname.charAt(0).toUpperCase()} 
-                                            </h4>
+                                           {
+                                             imgURL ?
+                                             <img src={imgValue} className="nav_img" name="uimage" /> 
+                                             :
+                                             <h4>
+                                                 {user.firstname.charAt(0).toUpperCase() + user.lastname.charAt(0).toUpperCase()} 
+                                             </h4>
+                                           }
                                         </div>
                                         <div className="nav_profile_content">
                                             <ul>

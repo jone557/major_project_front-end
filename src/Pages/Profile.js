@@ -10,6 +10,7 @@ import {BsLinkedin, BsGithub} from 'react-icons/bs'
 
 export const Profile = () => {
   const {user} = useSelector((state)=> state.auth)
+  const imgURL = useSelector((state) => state.userImage.image);
   const socialLinks = [
     {
       id:1,
@@ -54,13 +55,13 @@ export const Profile = () => {
   const toUploadComponent = ()=>{
     navigate(`/AddComponent`)
   }
-
+  const imgValue = imgURL? `http://127.0.0.1:8000${imgURL}` : null
   return (
     <div className='user_profile_container  flex col w-90'>
 			
          <div className="upper">
 	   	<div className="userimage">
-	   		<img className="user_img" src={Logo} alt="av"/>
+	   		<img className="user_img" src={imgValue || Logo} alt="av"/>
 
 		</div>
 	   	<h1 className="profile_h1">{user.firstname.charAt(0).toUpperCase() + user.firstname.slice(1) + ' ' + user.lastname.charAt(0).toUpperCase() + user.lastname.slice(1)}</h1>
