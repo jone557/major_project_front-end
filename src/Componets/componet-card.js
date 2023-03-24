@@ -10,8 +10,9 @@ import Swal from 'sweetalert2'
 import { display } from '@mui/system'
 import { DelateComponent } from '../Redux/reducers/componentReducer'
 import swal from 'sweetalert';
+import { useState } from 'react'
 
-const ComponentCard = ({id, user_id, name, category_id, viewes, likes, created_at, firstname})=>{
+const ComponentCard = ({id, user_id, name, category_id, viewes, likes, created_at, firstname, filename})=>{
     const {user, isLoading} = useSelector((state)=> state.auth)
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -53,6 +54,7 @@ const ComponentCard = ({id, user_id, name, category_id, viewes, likes, created_a
                 buttons: "Ok"
             })
     }
+    const imgValue =filename? `http://127.0.0.1:8000/storage/images/${filename}` : null
     return<>
    
         <div className="card wrapper align_items_c" >
@@ -62,7 +64,7 @@ const ComponentCard = ({id, user_id, name, category_id, viewes, likes, created_a
             </div>
            <div className="card_bottom center_center gap-1">
                 <div className='card_detail_left center_center gap-0_5'>
-                    <a href=""><img src={defaultAvatar} className='profile_img' alt="profile" /></a>
+                    <a href=""><img src={imgValue || defaultAvatar} className='profile_img' alt="profile" /></a>
                     <p>{firstname}</p>
                     <p></p>
                 </div>
