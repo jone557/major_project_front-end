@@ -11,6 +11,7 @@ import axios from 'axios';
 import Spinner from '../Componets/spinner';
 import CommentSection from '../Componets/CommentSection';
 import CommentCard from '../Componets/CommentCard';
+import { Async } from 'react-async';
 
 function SingleComponent() {    
     const dispatch = useDispatch();
@@ -35,11 +36,8 @@ function SingleComponent() {
         dispatch(Unique(id))
         dispatch(Viewes(id))
         if(user) {
-            // dispatch(StoreInteraction(interaction))
-            setInteraction({
-                        user_id: '',
-                        component_id: ''
-                    })
+            
+            Uinteracted(user.id);
             dispatch(GetUserLikedComponent(user.id))
         }
         if(uComponents.length !== 0){
@@ -51,7 +49,14 @@ function SingleComponent() {
         }
     }, [id]);
 
-   
+    async function   Uinteracted(id) {
+         await dispatch(StoreInteraction(interaction))
+        setInteraction({
+                    user_id: '',
+                    component_id: ''
+                })
+        dispatch(GetUserLikedComponent(id))
+   }
 
     useEffect(() => {
             setCodeOutput(`

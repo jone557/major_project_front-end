@@ -12,10 +12,12 @@ import { DelateComponent } from '../Redux/reducers/componentReducer'
 import swal from 'sweetalert';
 import { useState } from 'react'
 
-const ComponentCard = ({id, user_id, name, category_id, viewes, likes, created_at, firstname, filename})=>{
+
+const ComponentCard = ({id, user_id, name, category_id, viewes, likes, created_at, firstname, filename, code_referance})=>{
     const {user, isLoading} = useSelector((state)=> state.auth)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+   
     const onEdit = ()=>{
         ( user && user?.id == user_id ) || user?.role == 'admin' ?
          navigate(`/component/edit/${id}`)
@@ -58,13 +60,14 @@ const ComponentCard = ({id, user_id, name, category_id, viewes, likes, created_a
         <div className="card wrapper align_items_c" >
         <div onClick={() => { navigate('/components/' + (id)) }}>
             <div className="card_top center_center gap-1">
-                    <h3 className='center_centeer'>{name}</h3>
+                    <h3 className='center_centeer'>
+                     {name}
+                    </h3>
             </div>
            <div className="card_bottom center_center gap-1">
                 <div className='card_detail_left center_center gap-0_5'>
                     <a href=""><img src={imgValue || defaultAvatar} className='profile_img' alt="profile" /></a>
                     <p>{firstname}</p>
-                    <p></p>
                 </div>
 
                 <div className='card_detail_right center_center gap-0_5'>

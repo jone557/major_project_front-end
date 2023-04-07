@@ -10,7 +10,40 @@
     padding-top: 4rem;
     padding-bottom: 4rem;
 }
+.for_you_container{
+    position: relative;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+.for_you_container::-webkit-scrollbar{
+    -webkit-appearance: none;
+}
+.flx_container{
+    display: flex;
+    overflow: row;
+    align-items: center;
+}
+.hov:hover{
+ cursor: pointer;   
+}
+.Rarrow{
+    background: url('../Images/rightArrow.png');
+    border: none;
+    height: 30px;
+    width: 18px;
+    margin-left: 2rem;
 
+}
+.Larrow{
+    background: url('../Images/lArrow.png');
+    border: none;
+    height: 30px;
+    width: 18px;
+    margin-right: 2rem;
+
+}
 @media (max-width: 48em) {
     .info_card_container {
         grid-template-columns: repeat(2, 1fr);
