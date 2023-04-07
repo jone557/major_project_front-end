@@ -68,8 +68,6 @@
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    background-color: #f7f7f7;
-    background-image: url('/src/Assets/Images/img_avatar.png');
     background-size: cover;
     background-position: center;
   }

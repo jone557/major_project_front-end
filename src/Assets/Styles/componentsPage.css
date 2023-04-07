@@ -1,6 +1,16 @@
 .hdr-mrg{
-    margin: 2rem 0 0rem 2.5rem;
+    margin: 2rem 0 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+    color: #ffffff;
+    border-bottom: 3px solid #ffffff;
+    padding-bottom: 0.5rem;
+    
 }
+
+
+
 .hvr-pointer:hover{
     cursor: pointer;
 }
@@ -60,8 +70,8 @@
     
 }
 .editors-container{
-display: flex;
-flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 .compnent-elements{
    margin-left: 15rem;
@@ -114,11 +124,13 @@ line-height: 2.5rem;
 .comp-steps-container{
     min-height: 8.3rem;
     height: auto;
-    /* background: rgba(217, 217, 217, 0.05); */
+    background: hsla(177, 100%, 50%, 0.051);
     border-radius: 1rem;
     padding: 1rem;
     width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
+
 .comp-snipt-container{
     background: #112444;
     border-radius: 1rem;
@@ -146,5 +158,5 @@ line-height: 2.5rem;
 }
 
 .editors-container{
-    width: 100%;
+    width: 95%;
 }

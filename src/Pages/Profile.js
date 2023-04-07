@@ -65,7 +65,7 @@ export const Profile = () => {
 
 		</div>
 	   	<h1 className="profile_h1">{user.firstname.charAt(0).toUpperCase() + user.firstname.slice(1) + ' ' + user.lastname.charAt(0).toUpperCase() + user.lastname.slice(1)}</h1>
-	   	<p className="profile_p">{user.role}</p>
+	   	{/* <p className="profile_p">{user.role}</p> */}
 
 		 <div className="collection">
 	   	<button className='btn'>Collections</button>
@@ -77,9 +77,9 @@ export const Profile = () => {
 
 	  <div className='flex col justify_content_sb align_items_l '>
 
-      <button className="btn" onClick={toEditProfile}>Edit Profile</button>
+      <button className="pbtn" onClick={toEditProfile}>Edit Profile</button>
       
-      <div className=" ">
+      <div className="social_profile">
         <ul className='flex gap-1 p-1'>
           {
             socialLinks.map((link)=>{

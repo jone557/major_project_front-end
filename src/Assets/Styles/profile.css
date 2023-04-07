@@ -63,9 +63,24 @@
 	top: 50px;
 	left: 450px;
 }
-button{
+.pbtn{
 	
-	border-color: #fff;
+	border-color: #ffffff;
+	height: 2.5rem;
+    width: 9.4rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: var(--border-radius-4);
+    background-color: var(--clr-primary-3);
+    font-size: 16px;
+    line-height: 19.5px;
+    color: var(--clr-primary-1);
+    font-weight: 500;
+    text-decoration: none;
+	position: relative;
+	top: 45px;
+	right: -300px;
+	cursor: pointer;
 	
 }
 button:active {
@@ -94,8 +109,8 @@ hr{
 
 .social_profile{
 	position: relative;
-	top: 200px;
-	left: 370px;
+	top: -10px;
+	left: 300px;
 	height: 30px;
 
 }
