@@ -49,7 +49,7 @@ const StatsContainer = () => {
         <div className="row card stat_card gap-1" style={{borderBottom:'#70e642 solid 6px'}}>
             <div className="col stat_3">
                 <article>
-                    <h3 style={{color: '#70e642'}}>Cateory </h3>
+                    <h3 style={{color: '#70e642'}}>Category </h3>
                     <p>Total</p>
                     <h3 style={{color: '#70e642'}}>{categoryCount}</h3>
                 </article>

@@ -90,14 +90,14 @@ const AdminSidebar = ()=>{
                         </li>
                     </div>
                 </ul>
-                <li className={selected === 2 ? ('accordion_header link active') : ('accordion_header link')}  onClick={()=>toggle(2)}><MdOutlineCategory/>Catagory</li>
+                <li className={selected === 2 ? ('accordion_header link active') : ('accordion_header link')}  onClick={()=>toggle(2)}><MdOutlineCategory/>Category</li>
                 <ul className={selected === 2 ? ('accordion_body_container show') : ('accordion_body_container')} >
                     <div className="accordion_body">
                         {/* <li className={active === 20 ? ('active') : ('')}  onClick={()=>isActive(20)}>
                             <a href="/all-inactive-organizers">All Catagories</a>
                         </li> */}
                         <li className={active === 21 ? ('active') : ('')}  onClick={()=>isActive(21)}>
-                            <Link to='/dashboard/addCategory' >Add catagory</Link>
+                            <Link to='/dashboard/addCategory' >Add category</Link>
                         </li>
                     </div>
                 </ul>
