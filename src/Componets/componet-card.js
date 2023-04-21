@@ -58,14 +58,14 @@ const ComponentCard = ({id, user_id, name, category_id, viewes, likes, created_a
     return<>
    
         <div className="card wrapper align_items_c" >
-        <div onClick={() => { navigate('/components/' + (id)) }}>
-            <div className="card_top center_center gap-1">
+        <div >
+            <div className="card_top center_center gap-1" onClick={() => { navigate('/components/' + (id)) }}>
                     <h3 className='center_centeer'>
                      {name}
                     </h3>
             </div>
            <div className="card_bottom center_center gap-1">
-                <div className='card_detail_left center_center gap-0_5'>
+                <div className='card_detail_left center_center gap-0_5' onClick={() => { navigate('/profile/' + (user_id)) }}>
                     <a href=""><img src={imgValue || defaultAvatar} className='profile_img' alt="profile" /></a>
                     <p>{firstname}</p>
                 </div>
